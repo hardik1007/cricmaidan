@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "206458214080",
+    "project_id": "cric-app-demo",
+    "storage_bucket": "cric-app-demo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206458214080:android:4dc549bc26b750602dbf25",
+        "android_client_info": {
+          "package_name": "com.example.flutterapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206458214080-oe92bi3jgeao71sqndkmfg2s5fuoraau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ-iSdCt1mot-U_3CfzHnK4Gxn06dqgkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206458214080-kvk949p9sjacdce1dmq00o0s3e2kg7u0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "206458214080-k4maaf4dqlra3p6e7hjhj2g0697r0dda.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.exam"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
