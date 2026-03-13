@@ -68,8 +68,7 @@ class AppTheme {
             textStyle: const TextStyle(fontWeight: FontWeight.w600),
           ),
         ),
-        cardTheme: CardTheme(
-          elevation: 0,
+        cardTheme: CardThemeData(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -125,8 +124,7 @@ class AppTheme {
             ),
           ),
         ),
-        cardTheme: CardTheme(
-          elevation: 0,
+        cardTheme: CardThemeData(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),

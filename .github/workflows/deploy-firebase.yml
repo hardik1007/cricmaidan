@@ -16,7 +16,8 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.41.4'
+          channel: 'stable'
           cache: true
 
       - name: Install dependencies
@@ -39,14 +40,13 @@ jobs:
       - name: Build Flutter Web
         run: flutter build web --release
 
-      - name: Write Firebase Service Account to file
-        env:
-          FIREBASE_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          echo "$FIREBASE_KEY" > /tmp/firebase-key.json
-          cat /tmp/firebase-key.json
+      - name: Setup Firebase CLI
+        run: npm install -g firebase-tools@latest
 
       - name: Deploy to Firebase Hosting
-        run: npx firebase-tools@latest deploy --only hosting --project ${{ secrets.FIREBASE_PROJECT_ID }}
+        run: |
+          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}" > /tmp/firebase-key.json
+          firebase deploy --only hosting --project ${{ secrets.FIREBASE_PROJECT_ID }}
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-key.json
+
