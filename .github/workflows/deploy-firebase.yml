@@ -43,20 +43,10 @@ jobs:
         env:
           FIREBASE_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
-          echo "Debug: Checking Firebase key length..."
-          echo "${#FIREBASE_KEY} characters"
-          echo "Debug: Writing to /tmp/firebase-key.json..."
           echo "$FIREBASE_KEY" > /tmp/firebase-key.json
-          echo "Debug: File created. First 50 chars:"
-          head -c 50 /tmp/firebase-key.json
-          echo ""
-          echo "Debug: Validating JSON..."
-          cat /tmp/firebase-key.json | jq . > /dev/null && echo "✅ JSON is valid" || echo "❌ JSON is invalid"
+          cat /tmp/firebase-key.json
 
       - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: /tmp/firebase-key.json
-          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
-          channelId: live
+        run: npx firebase-tools@latest deploy --only hosting --project ${{ secrets.FIREBASE_PROJECT_ID }}
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-key.json
